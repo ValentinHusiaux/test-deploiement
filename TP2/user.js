@@ -11,6 +11,7 @@ export class User{
     }
 
     isValid(){
+        // le control pour le mail au niveau des caracteres
         let controlRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
         let verif = false;
         if(controlRegex.test(this.email)){
