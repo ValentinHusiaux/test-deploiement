@@ -10,24 +10,25 @@ export class User{
         this.age = age;
     }
 
-    isValid(email, nom, prenom, age){
-        let mailVerif = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    isValid(){
+        let controlRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
         let verif = false;
-
-        if(email === mailVerif){
-            verif = true;
+        if(controlRegex.test(this.email)){
+            if(!(this.nom == "" || this.nom == null)){
+                if(!(this.prenom == "" || this.prenom == null)){
+                    if(this.age>=13){
+                        verif = true;
+                    }
+                }
+            }
         }
-
-        if((nom != null || nom != "" )){
-            verif = true;
+        if(verif){
+            console.log("test bon")
+        }else{
+            console.log("test pas bon")
         }
-
-        if(!(prenom != null || prenom != "")){
-            verif = true;
-        }
-
-        if((age >= 13 )){
-            verif = true;
-        }
-    }    
+        //return check
+    }  
 }
+
+
